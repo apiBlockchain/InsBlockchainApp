@@ -220,6 +220,19 @@ app.get('/getCustomerPoints', function(req, res) {
 
 
 // Get a single participant's transaction history
+app.get('/getEmployeeRecord', function(req, res) {
+
+	var userid = url.parse(req.url, true).query.userid;
+
+	console.log('userid: ', userid);
+
+	chaincode.query.getEmployeeRecord([ 'getEmployeeRecord', userid ], function(e, data) {
+		cb_received_response(e, data, res);
+	});
+
+});
+
+// Get a single participant's transaction history
 app.get('/getUserTransactions', function(req, res) {
 
 	var userid = url.parse(req.url, true).query.userid;
