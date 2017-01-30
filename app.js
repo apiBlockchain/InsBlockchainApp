@@ -205,6 +205,15 @@ app.get('/addSmartContract', function(req, res) {
 });
 
 
+app.get('/CreateData', function(req, res) {
+
+	chaincode.invoke.CreateData(['99'], cb_invoked_api);
+
+	res.send("Data create function executed");
+
+});
+
+
 // Get a single participant's account information
 app.get('/getCustomerPoints', function(req, res) {
 
